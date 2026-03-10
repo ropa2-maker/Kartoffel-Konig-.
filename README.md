@@ -1,1 +1,1 @@
-# Kartoffel-Konig-.
+# kartoffel-konig

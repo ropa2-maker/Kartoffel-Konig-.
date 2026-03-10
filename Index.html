@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kartoffel König – Cennik</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5efe4;
+      --card: #fffaf0;
+      --border: #d1bfa0;
+      --accent: #7a5a2f;
+      --accent-soft: #a47b45;
+      --text: #2b2418;
+      --muted: #6b5b45;
+      --green: #4f7b3b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+    }
+    .page {
+      width: 100%;
+      max-width: 900px;
+      background: var(--card);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      padding: 20px 18px 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .lang-btn {
+      border: 1px solid var(--border);
+      background: #f3e6d2;
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .section {
+      margin-top: 16px;
+      padding: 10px 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fffdf7;
+    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-soft);
+      margin-bottom: 6px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 4px 2px;
+      text-align: left;
+    }
+    th {
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    tr:nth-child(even) td {
+      background: #fff8ec;
+    }
+    .price {
+      text-align: right;
+      white-space: nowrap;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .unit {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .footer {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      text-align: center;
+    }
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      background: var(--green);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+    .whatsapp-btn span.icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: inline-block;
+      position: relative;
+    }
+    .whatsapp-btn span.icon::before {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      transform: rotate(35deg);
+    }
+    .note {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .lang-block { display: none; }
+    .lang-block.active { display: block; }
+    @media (min-width: 720px) {
+      .page { padding: 24px 26px 26px; }
+      header { margin-bottom: 20px; }
+      .section { margin-top: 18px; padding: 12px 14px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">Kartoffel König</div>
+      <div class="subtitle">Bio warzywa i produkty wiejskie z Polski · BIO Gemüse & Landprodukte aus Polen</div>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="pl">PL</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </header>
+
+    <!-- PL -->
+    <div class="lang-block active" id="lang-pl">
+      <div class="section">
+        <div class="section-title">Warzywa i owoce</div>
+        <table>
+          <tr><th>Produkt</th><th class="price">Cena</th></tr>
+          <tr><td>Ziemniaki 10 kg</td><td class="price">12,50 € <span class="unit">/ 10 kg</span></td></tr>
+          <tr><td>Ziemniaki 5 kg</td><td class="price">6,25 € <span class="unit">/ 5 kg</span></td></tr>
+          <tr><td>Kapusta kiszona</td><td class="price">3,20 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Ogórek kiszony</td><td class="price">3,40 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Marchew</td><td class="price">1,40 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Pietruszka</td><td class="price">1,90 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Cebula biała</td><td class="price">1,20 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Burak czerwony</td><td class="price">1,70 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Jabłka</td><td class="price">2,20 € <span class="unit">/ kg</span></td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Produkty wiejskie</div>
+        <table>
+          <tr><th>Produkt</th><th class="price">Cena</th></tr>
+          <tr><td>Jajka wiejskie (10 szt.)</td><td class="price">3,90 €</td></tr>
+          <tr><td>Czosnek (główka)</td><td class="price">0,50 €</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Dodatki i przetwory</div>
+        <table>
+          <tr><th>Produkt</th><th class="price">Cena</th></tr>
+          <tr><td>Groch łuskany 0,5 kg</td><td class="price">2,50 €</td></tr>
+          <tr><td>Smalec czysty 1 L</td><td class="price">7,50 €</td></tr>
+          <tr><td>Smalec ze skwarkami 0,5 L</td><td class="price">6,00 €</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- DE -->
+    <div class="lang-block" id="lang-de">
+      <div class="section">
+        <div class="section-title">Gemüse und Obst</div>
+        <table>
+          <tr><th>Produkt</th><th class="price">Preis</th></tr>
+          <tr><td>Kartoffeln 10 kg</td><td class="price">12,50 € <span class="unit">/ 10 kg</span></td></tr>
+          <tr><td>Kartoffeln 5 kg</td><td class="price">6,25 € <span class="unit">/ 5 kg</span></td></tr>
+          <tr><td>Saure Kraut (fassgereift)</td><td class="price">3,20 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Saure Gurken</td><td class="price">3,40 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Möhren</td><td class="price">1,40 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Petersilienwurzel</td><td class="price">1,90 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Weiße Zwiebeln</td><td class="price">1,20 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Rote Bete</td><td class="price">1,70 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Äpfel</td><td class="price">2,20 € <span class="unit">/ kg</span></td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title>Hofprodukte</div>
+        <table>
+          <tr><th>Produkt</th><th class="price">Preis</th></tr>
+          <tr><td>Hof-Eier (10 Stk.)</td><td class="price">3,90 €</td></tr>
+          <tr><td>Knoblauch (Knolle)</td><td class="price">0,50 €</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Zusätze und Eingemachtes</div>
+        <table>
+          <tr><th>Produkt</th><th class="price">Preis</th></tr>
+          <tr><td>Geschälte Erbsen 0,5 kg</td><td class="price">2,50 €</td></tr>
+          <tr><td>Reines Schmalz 1 L</td><td class="price">7,50 €</td></tr>
+          <tr><td>Schmalz mit Grieben 0,5 L</td><td class="price">6,00 €</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- EN -->
+    <div class="lang-block" id="lang-en">
+      <div class="section">
+        <div class="section-title">Vegetables and fruit</div>
+        <table>
+          <tr><th>Product</th><th class="price">Price</th></tr>
+          <tr><td>Potatoes 10 kg</td><td class="price">12,50 € <span class="unit">/ 10 kg</span></td></tr>
+          <tr><td>Potatoes 5 kg</td><td class="price">6,25 € <span class="unit">/ 5 kg</span></td></tr>
+          <tr><td>Sauerkraut</td><td class="price">3,20 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Pickled cucumbers</td><td class="price">3,40 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Carrots</td><td class="price">1,40 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Parsley root</td><td class="price">1,90 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>White onions</td><td class="price">1,20 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Red beetroot</td><td class="price">1,70 € <span class="unit">/ kg</span></td></tr>
+          <tr><td>Apples</td><td class="price">2,20 € <span class="unit">/ kg</span></td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Farm products</div>
+        <table>
+          <tr><th>Product</th><th class="price">Price</th></tr>
+          <tr><td>Farm eggs (10 pcs)</td><td class="price">3,90 €</td></tr>
+          <tr><td>Garlic (bulb)</td><td class="price">0,50 €</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Extras and preserves</div>
+        <table>
+          <tr><th>Product</th><th class="price">Price</th></tr>
+          <tr><td>Peeled peas 0.5 kg</td><td class="price">2,50 €</td></tr>
+          <tr><td>Pure lard 1 L</td><td class="price">7,50 €</td></tr>
+          <tr><td>Lard with cracklings 0.5 L</td><td class="price">6,00 €</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a class="whatsapp-btn" href="https://wa.me/49015145858466" target="_blank" rel="noopener">
+        <span class="icon"></span>
+        <span>WhatsApp zamówienia / Bestellungen</span>
+      </a>
+      <div class="note">
+        Ceny mogą się zmieniać w zależności od dostępności i sezonu. / Preise können saisonal variieren.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".lang-btn");
+    const blocks = document.querySelectorAll(".lang-block");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const lang = btn.dataset.lang;
+        buttons.forEach(b => b.classList.toggle("active", b === btn));
+        blocks.forEach(block => {
+          block.classList.toggle("active", block.id === "lang-" + lang);
+        });
+      });
+    });
+  </script>
+</body>
+  </html>
